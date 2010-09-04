@@ -26,10 +26,10 @@ public class Msnp8 extends Notification {
 	private static final String CPU_ARCHITECTURE = "i386";
 	private static final String CLIENT_NAME = "MSNMSGR";
 	private static final String CLIENT_VERSION = "6.0.0602"; // 5.0.0544
-	// Chalenger
+	// Challenger
 	private static final String CLIENT_ID = "MSMSGS";
 	private static final String CLIENT_IDCODE = "msmsgs@msnmsgr.com";
-	// necessario para o chalenger
+	// needed for the challenger
 	private static final String CLIENT_CODE = "Q1P7W2E4J9R8U3S5";
 
 	String authenticate(String username, String password, String lc) {
@@ -99,8 +99,10 @@ public class Msnp8 extends Notification {
 
 	@Override
 	//TODO: see diferences on PHP and Java Impl
-	void execute(String cmd, String... params) {
+	public void execute(String command) {
 		StringTokenizer token;
+		String params [] = command.split(" ");
+		String cmd = params[0];
 		String str1, str2;
 		if (cmd.equals("VER")) {
 			send(cvr());

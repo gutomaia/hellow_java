@@ -21,7 +21,7 @@ public class Msnc1 extends Switchboard {
 	// MSG 3 D 798
 
 	@Override
-	void execute(String cmd, String... params) {
+	void execute(String cmd) {
 		StringTokenizer token;
 		String str1, str2;
 		if (cmd.equals("USR")) {

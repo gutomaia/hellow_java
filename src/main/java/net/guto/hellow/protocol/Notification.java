@@ -13,6 +13,11 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import net.guto.hellow.core.Authentication;
+import net.guto.hellow.core.listener.ConnectionListener;
+import net.guto.hellow.core.listener.ContactListener;
+import net.guto.hellow.core.listener.PresenceListener;
+
 public abstract class Notification extends Msnp {
 
 	abstract String getProtocolVersion();
@@ -34,9 +39,21 @@ public abstract class Notification extends Msnp {
 	abstract String getIdCode();
 
 	abstract String getCode();
+	
+	private Authentication _authenticationHandle;
 
+	public void setAuthenticationHandle(Authentication authenticationHandle){
+		_authenticationHandle = authenticationHandle;
+	}
+	
+	public void authenticate(String lc){
+		_passport = _authenticationHandle.authenticate(_username, _password, lc);
+	}
+	
 	private String _username;
 	private String _password;
+	
+	
 
 	protected final String getUsername() {
 		return _username;
@@ -50,14 +67,18 @@ public abstract class Notification extends Msnp {
 	protected void connect(String host, int port) {
 		super.connect(host, port);
 		send(ver());
-		new Thread(this).start();
-		// listen();
+		listen();
 	}
 
 	public void login(String username, String password) {
 		_username = username;
 		_password = password;
 		connect(getHost(), getPort());
+	}
+	
+	public void logout(){
+		send(out());
+		disconnect();
 	}
 
 	public String ver() {
@@ -71,7 +92,33 @@ public abstract class Notification extends Msnp {
 				+ " " + getClientVersion() + " " + getClientId() + " "
 				+ getUsername() + EL;
 	}
-
+	
+	private ConnectionListener connectionListener = null;
+	private ContactListener contactListener = null;
+	private PresenceListener presenceListener = null;
+	
+	public final void addConnectionListener(ConnectionListener connectionListener){
+		this.connectionListener = connectionListener;
+	}
+	
+	public final void addContactListener(ContactListener contactListener){
+		this.contactListener = contactListener;
+	}
+	
+	public final void addPresenceListener(PresenceListener presenceListener){
+		this.presenceListener = presenceListener;
+	}
+	
+	//Connection
+	protected final void onLogged(){
+		//if (connectionListener != null) connectionListener.onLogged(event);
+		
+	}
+	
+	protected final void onConnected(){
+		//if (connectionListener != null) connectionListener.onConnected(event)
+	}
+	
 	public String usr() {
 		if (_passport == null) {
 			return "USR " + _trid + " TWN I " + _username + EL;
@@ -88,7 +135,7 @@ public abstract class Notification extends Msnp {
 		return "CHG " + _trid + " NLN 0" + EL;// get Initial Presence
 	}
 
-	public String chanllenger(String chl) {
+	public String challenger(String chl) {
 		String digest = null;
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -103,7 +150,7 @@ public abstract class Notification extends Msnp {
 	}
 
 	public String qry(String code) {
-		String digest = chanllenger(code);
+		String digest = challenger(code);
 		return "QRY " + _trid + " " + getIdCode() + " 32" + EL + digest;
 	}
 
