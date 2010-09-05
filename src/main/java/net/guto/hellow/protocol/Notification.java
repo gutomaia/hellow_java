@@ -13,6 +13,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import net.guto.hellow.auth.TweenerAuthentication;
 import net.guto.hellow.core.Authentication;
 import net.guto.hellow.core.listener.ConnectionListener;
 import net.guto.hellow.core.listener.ContactListener;
@@ -39,21 +40,24 @@ public abstract class Notification extends Msnp {
 	abstract String getIdCode();
 
 	abstract String getCode();
-	
+
 	private Authentication _authenticationHandle;
 
-	public void setAuthenticationHandle(Authentication authenticationHandle){
+	public Notification() {
+		_authenticationHandle = new TweenerAuthentication();
+	}
+
+	public void setAuthenticationHandle(Authentication authenticationHandle) {
 		_authenticationHandle = authenticationHandle;
 	}
-	
-	public void authenticate(String lc){
-		_passport = _authenticationHandle.authenticate(_username, _password, lc);
+
+	public void authenticate(String lc) {
+		_passport = _authenticationHandle
+				.authenticate(_username, _password, lc);
 	}
-	
+
 	private String _username;
 	private String _password;
-	
-	
 
 	protected final String getUsername() {
 		return _username;
@@ -75,50 +79,80 @@ public abstract class Notification extends Msnp {
 		_password = password;
 		connect(getHost(), getPort());
 	}
-	
-	public void logout(){
+
+	public void logout() {
 		send(out());
 		disconnect();
 	}
 
 	public String ver() {
-		return getProtocolVersion() + EL;
+		return "VER " + _trid + " " + getProtocolVersion() + " CVR0" + EL;
 	}
 
 	public String cvr() {
-		_trid = 1;
 		return "CVR " + _trid + " " + getLocale() + " " + getOSType() + " "
 				+ getOSVersion() + " " + getArch() + " " + getClientName()
 				+ " " + getClientVersion() + " " + getClientId() + " "
 				+ getUsername() + EL;
 	}
-	
+
 	private ConnectionListener connectionListener = null;
 	private ContactListener contactListener = null;
 	private PresenceListener presenceListener = null;
-	
-	public final void addConnectionListener(ConnectionListener connectionListener){
+
+	public final void addConnectionListener(
+			ConnectionListener connectionListener) {
 		this.connectionListener = connectionListener;
 	}
-	
-	public final void addContactListener(ContactListener contactListener){
+
+	public final void addContactListener(ContactListener contactListener) {
 		this.contactListener = contactListener;
 	}
-	
-	public final void addPresenceListener(PresenceListener presenceListener){
+
+	public final void addPresenceListener(PresenceListener presenceListener) {
 		this.presenceListener = presenceListener;
 	}
-	
-	//Connection
-	protected final void onLogged(){
-		//if (connectionListener != null) connectionListener.onLogged(event);
-		
+
+	// Connection
+	protected final void onLogged() {
+		if (connectionListener != null) connectionListener.onLogged();
+
 	}
-	
-	protected final void onConnected(){
-		//if (connectionListener != null) connectionListener.onConnected(event)
+
+	protected final void onConnected() {
+		if (connectionListener != null) connectionListener.onConnected();
 	}
-	
+
+	// Contact
+	protected final void onAddContact() {// Contact contact){
+
+	}
+
+	protected final void onRemoveContact() {
+
+	}
+
+	protected final void onRemoveGroup() {
+
+	}
+
+	protected final void onAddGroup() {
+
+	}
+
+	// Presence
+	protected final void onContactOnline() {
+
+	}
+
+	protected final void onContactOffline() {
+
+	}
+
+	protected final void onContactAvaiable() {
+
+	}
+
 	public String usr() {
 		if (_passport == null) {
 			return "USR " + _trid + " TWN I " + _username + EL;

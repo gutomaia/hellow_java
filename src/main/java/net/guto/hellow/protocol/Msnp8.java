@@ -11,15 +11,12 @@ package net.guto.hellow.protocol;
 
 import java.util.StringTokenizer;
 
-import net.guto.hellow.auth.TweenerAuthentication;
-import net.guto.hellow.core.Authentication;
-
 public class Msnp8 extends Notification {
 
 	private static final String MSN_HOST = "messenger.hotmail.com";
 	private static final int MSN_PORT = 1863;
 
-	private static final String PROTOCOL_VERSION = "VER 1 MSNP8 MSNP9 CVR0";
+	private static final String PROTOCOL_VERSION = "MSNP8";
 	private static final String LOCALE_ID = "0x0409";
 	private static final String OS_TYPE = "win";
 	private static final String OS_VERSION = "4.10"; // windows 98;
@@ -31,11 +28,6 @@ public class Msnp8 extends Notification {
 	private static final String CLIENT_IDCODE = "msmsgs@msnmsgr.com";
 	// needed for the challenger
 	private static final String CLIENT_CODE = "Q1P7W2E4J9R8U3S5";
-
-	String authenticate(String username, String password, String lc) {
-		Authentication ta = new TweenerAuthentication();
-		return ta.authenticate(username, password, lc);
-	}
 
 	@Override
 	String getHost() {
@@ -115,11 +107,10 @@ public class Msnp8 extends Notification {
 			connect(str1, Integer.valueOf(str2));
 		} else if (cmd.equals("USR")) {
 			if (params[2].equals("TWN")) {
-				_passport = authenticate(getUsername(), getPassword(),
-						params[4]);
+				authenticate(params[4]);
 				send(usr());
 			} else if (params[2].equals("OK")) {
-				// onLoggedON;
+				onLogged();
 				send(syn());
 			}
 		} else if (cmd.equals("SYN")) {
@@ -131,12 +122,15 @@ public class Msnp8 extends Notification {
 		} else if (cmd.equals("BLP")) {
 		} else if (cmd.equals("PRP")) {
 		} else if (cmd.equals("LSG")) {
+			onAddGroup();
 		} else if (cmd.equals("LST")) {
 			if (params.length == 4) {
+				onAddContact();
 			} else if (params.length == 5) {
+				onAddContact();
 			}
 		} else if (params.equals("CHG")) {
-
+			onConnected();
 		} else if (params.equals("ILN")) {
 
 		} else if (params.equals("ADD")) {

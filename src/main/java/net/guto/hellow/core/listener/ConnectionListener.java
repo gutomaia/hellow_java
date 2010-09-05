@@ -1,10 +1,7 @@
 package net.guto.hellow.core.listener;
 
-//TODO: create a ConnectionEvent;
-import javax.sql.ConnectionEvent;
-
 public interface ConnectionListener {
-	void onLogged(ConnectionEvent event);
+	void onLogged();
 
-	void onConnected(ConnectionEvent event);
+	void onConnected();
 }
