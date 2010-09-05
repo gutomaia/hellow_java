@@ -122,23 +122,20 @@ public class Msnp8 extends Notification {
 		} else if (cmd.equals("BLP")) {
 		} else if (cmd.equals("PRP")) {
 		} else if (cmd.equals("LSG")) {
-			onAddGroup();
+			//onAddGroup(params[1],params[2],params[3]);
 		} else if (cmd.equals("LST")) {
 			if (params.length == 4) {
-				onAddContact();
+				//user, nick, lists, groups
+				onAddContact(params[1],params[2],params[3],params[4]);
 			} else if (params.length == 5) {
-				onAddContact();
+				//onAddContact(params[1],params[2],params[3],params[4],params[5]);
 			}
 		} else if (params.equals("CHG")) {
 			onConnected();
 		} else if (params.equals("ILN")) {
-
 		} else if (params.equals("ADD")) {
-
 		} else if (params.equals("FLN")) {
-
 		} else if (params.equals("NLN")) {
-
 		}
 	}
 }

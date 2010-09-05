@@ -13,8 +13,8 @@ import java.util.StringTokenizer;
 
 public class Msnc1 extends Switchboard {
 
-	// USR 1 guto_n@hotmail.com 700432717.4772207.1043557
-	// USR 1 OK guto_n@hotmail.com guto
+	// USR 1 hellow@hotmail.com 700432717.4772207.1043557
+	// USR 1 OK hellow@hotmail.com guto
 	// CAL 2 buddy@msn.com
 	// CAL 2 RINGING 700432717
 	// JOI buddy@msn.com buddy

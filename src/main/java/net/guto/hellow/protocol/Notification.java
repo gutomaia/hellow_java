@@ -115,42 +115,73 @@ public abstract class Notification extends Msnp {
 
 	// Connection
 	protected final void onLogged() {
-		if (connectionListener != null) connectionListener.onLogged();
+		if (connectionListener != null)
+			connectionListener.onLogged();
 
 	}
 
 	protected final void onConnected() {
-		if (connectionListener != null) connectionListener.onConnected();
+		if (connectionListener != null)
+			connectionListener.onConnected();
 	}
 
 	// Contact
-	protected final void onAddContact() {// Contact contact){
+	protected final void onAddContact(String user, String nick, String lists,
+			String groups) {
+		if (contactListener != null) {
+			try {
+				int listsInt = Integer.valueOf(lists);
+			} catch (NumberFormatException e) {
+				int listsInt = 0;
+			}
+
+			int groupsArray[];
+
+		}
+		// $this->receive("LST emperor@empire.com Emperor 13 0\r\n");
+		// $this->assertEquals($this->_mockClient->contact['user'],
+		// 'emperor@empire.com');
+		// $this->assertEquals($this->_mockClient->contact['nick'], 'Emperor');
+		// $this->assertEquals($this->_mockClient->contact['lists'], '13');
+		// $this->assertEquals($this->_mockClient->contact['groups'], '0');
 
 	}
 
 	protected final void onRemoveContact() {
+		if (contactListener != null) {
 
+		}
 	}
 
 	protected final void onRemoveGroup() {
+		if (connectionListener != null) {
 
+		}
 	}
 
 	protected final void onAddGroup() {
+		if (contactListener != null) {
 
+		}
 	}
 
 	// Presence
 	protected final void onContactOnline() {
+		if (presenceListener != null) {
 
+		}
 	}
 
 	protected final void onContactOffline() {
+		if (presenceListener != null) {
 
+		}
 	}
 
 	protected final void onContactAvaiable() {
-
+		if (presenceListener != null){
+			
+		}
 	}
 
 	public String usr() {
@@ -162,11 +193,11 @@ public abstract class Notification extends Msnp {
 	}
 
 	public String syn() {
-		return "SYN 1 0" + EL;// get List Version
+		return "SYN 1 0" + EL;//TODO: get List Version
 	}
 
 	public String chg() {
-		return "CHG " + _trid + " NLN 0" + EL;// get Initial Presence
+		return "CHG " + _trid + " NLN 0" + EL;//TODO: get Initial Presence
 	}
 
 	public String challenger(String chl) {
