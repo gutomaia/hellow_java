@@ -1,9 +1,9 @@
 package net.guto.hellow.core.listener;
 
-import net.guto.hellow.core.pojos.ContactEvent;
+import net.guto.hellow.core.pojos.Contact;
 
 public interface ContactListener {
-	void onAddContact(ContactEvent event);
+	void onAddContact(Contact contact);
 
-	void onRemoveContact(ContactEvent event);
+	void onRemoveContact(Contact contact);
 }

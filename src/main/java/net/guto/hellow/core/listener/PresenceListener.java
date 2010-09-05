@@ -1,20 +1,20 @@
 package net.guto.hellow.core.listener;
 
-import net.guto.hellow.core.pojos.ContactEvent;
+import net.guto.hellow.core.pojos.Contact;
 
 public interface PresenceListener {
-	void onContactAvaiable(ContactEvent event);
+	void onContactAvaiable(Contact contact);
 
-	void onContactBusy(ContactEvent event);
+	void onContactBusy(Contact contact);
 
-	void onContactIdle(ContactEvent event);
+	void onContactIdle(Contact contact);
 
-	void onContactBeRightBack(ContactEvent event);
+	void onContactBeRightBack(Contact contact);
 
-	void onContactAway(ContactEvent event);
+	void onContactAway(Contact contact);
 
-	void onContactOnPhone(ContactEvent event);
+	void onContactOnPhone(Contact contact);
 
-	void onContactOutLunch(ContactEvent event);
+	void onContactOutLunch(Contact contact);
 
 }
