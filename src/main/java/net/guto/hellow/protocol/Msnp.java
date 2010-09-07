@@ -1,11 +1,20 @@
+/*  HellowJava, alpha version
+ *  (c) 2005-2010 Gustavo Maia Neto (gutomaia)
+ *
+ *  HellowJava and all other Hellow flavors will be always
+ *  freely distributed under the terms of an GPLv3 license.
+ *
+ *  Human Knowledge belongs to the World!
+ *--------------------------------------------------------------------------*/
+
 package net.guto.hellow.protocol;
 
 import net.guto.hellow.core.ConnectionHandle;
 import net.guto.hellow.core.SocketConnection;
 import net.guto.hellow.core.listener.CommandListener;
 
-public abstract class Msnp { //implements Runnable {
-
+public abstract class Msnp {
+	
 	protected final String EL = "\r\n";
 	protected String _passport = null;
 	protected int _trid = 1;
@@ -53,6 +62,7 @@ public abstract class Msnp { //implements Runnable {
 			String command = _connectionHandle.nextCommand();
 			if (!command.trim().equals("")){
 				execute(command);
+				_commandListener.receivedCommand(command);
 			}
 		}
 	}

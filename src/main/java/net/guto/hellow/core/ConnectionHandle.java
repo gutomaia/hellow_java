@@ -7,10 +7,16 @@
  *  Human Knowledge belongs to the World!
  *--------------------------------------------------------------------------*/
 
-package net.guto.hellow.core.listener;
+package net.guto.hellow.core;
 
-public interface CommandListener {
-	void receivedCommand(String cmd);
+public interface ConnectionHandle {
+	public void connect(String host, int port);
 
-	void sendedCommand(String cmd);
+	public void disconnect();
+
+	public void send(String command);
+
+	public String nextCommand();
+
+	public boolean hasMoreCommands();
 }

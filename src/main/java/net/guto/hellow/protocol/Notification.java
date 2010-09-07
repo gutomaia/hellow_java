@@ -165,11 +165,11 @@ public abstract class Notification extends Msnp {
 
 	protected final void onAddGroup(String id, String name) {
 		if (contactListener != null) {
-			int idInt = 0;
+			int idInt;
 			try {
 				idInt = Integer.parseInt(id);
 			}catch (NumberFormatException e) {
-				// TODO: handle exception
+				idInt = 0;
 			}
 			contactListener.onAddGroup(new Group(idInt,name));
 		}
@@ -232,5 +232,4 @@ public abstract class Notification extends Msnp {
 	public String out() {
 		return "OUT" + EL;
 	}
-
 }
