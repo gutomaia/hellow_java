@@ -95,7 +95,8 @@ public class SocketConnection implements ConnectionHandle {
 
 	@Override
 	public boolean hasMoreCommands() {
-		return true;
+		return socket.isConnected();
+		//return true;
 	}
 
 }
