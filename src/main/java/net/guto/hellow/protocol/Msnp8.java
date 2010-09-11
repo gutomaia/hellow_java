@@ -90,10 +90,9 @@ public class Msnp8 extends Notification {
 	}
 
 	@Override
-	//TODO: see diferences on PHP and Java Impl
 	public void execute(String command) {
 		StringTokenizer token;
-		String params [] = command.trim().split(" ");
+		String params[] = command.trim().split(" ");
 		String cmd = params[0];
 		String str1, str2;
 		if (cmd.equals("VER")) {
@@ -121,13 +120,13 @@ public class Msnp8 extends Notification {
 		} else if (cmd.equals("BLP")) {
 		} else if (cmd.equals("PRP")) {
 		} else if (cmd.equals("LSG")) {
-			onAddGroup(params[1],params[2]);
+			onAddGroup(params[1], params[2]);
 		} else if (cmd.equals("LST")) {
 			if (params.length == 4) {
-				//user, nick, lists, groups
-				//onAddContact(params[1],params[2],params[3]);
-			} else if (params.length == 5) {				
-				onAddContact(params[1],params[2],params[3],params[4]);
+				// user, nick, lists, groups
+				// onAddContact(params[1],params[2],params[3]);
+			} else if (params.length == 5) {
+				onAddContact(params[1], params[2], params[3], params[4]);
 			}
 		} else if (params.equals("CHG")) {
 			onConnected();
@@ -135,6 +134,9 @@ public class Msnp8 extends Notification {
 		} else if (params.equals("ADD")) {
 		} else if (params.equals("FLN")) {
 		} else if (params.equals("NLN")) {
+			
+		} else if (cmd.equals("RNG")) {
+			onRing(params[1], params[2], params[4], params[5], params[6]);
 		}
 	}
 }

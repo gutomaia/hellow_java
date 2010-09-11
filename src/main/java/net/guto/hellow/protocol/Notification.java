@@ -15,6 +15,7 @@ import java.security.NoSuchAlgorithmException;
 
 import net.guto.hellow.auth.TweenerAuthentication;
 import net.guto.hellow.core.Authentication;
+import net.guto.hellow.core.listener.CallListener;
 import net.guto.hellow.core.listener.ConnectionListener;
 import net.guto.hellow.core.listener.ContactListener;
 import net.guto.hellow.core.listener.PresenceListener;
@@ -101,6 +102,7 @@ public abstract class Notification extends Msnp {
 	private ConnectionListener connectionListener = null;
 	private ContactListener contactListener = null;
 	private PresenceListener presenceListener = null;
+	private CallListener callListener = null;
 
 	public final void addConnectionListener(
 			ConnectionListener connectionListener) {
@@ -113,6 +115,10 @@ public abstract class Notification extends Msnp {
 
 	public final void addPresenceListener(PresenceListener presenceListener) {
 		this.presenceListener = presenceListener;
+	}
+
+	public final void addCallListener(CallListener callListener) {
+		this.callListener = callListener;
 	}
 
 	// Connection
@@ -168,10 +174,10 @@ public abstract class Notification extends Msnp {
 			int idInt;
 			try {
 				idInt = Integer.parseInt(id);
-			}catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				idInt = 0;
 			}
-			contactListener.onAddGroup(new Group(idInt,name));
+			contactListener.onAddGroup(new Group(idInt, name));
 		}
 	}
 
@@ -191,6 +197,24 @@ public abstract class Notification extends Msnp {
 	protected final void onContactAvaiable() {
 		if (presenceListener != null) {
 
+		}
+	}
+
+	// Call
+
+	protected final void onRing(String call, String serverport, String cki,
+			String username, String nick) {
+		if (callListener != null) {
+			try {
+				String sp[] = serverport.split(":");
+				String server = sp[0];
+				int port = Integer.parseInt(sp[1]);
+				callListener.onRing(call, server, port, cki, username, nick);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (ArrayIndexOutOfBoundsException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
