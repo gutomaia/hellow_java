@@ -1,5 +1,8 @@
 package net.guto.hellow.protocol;
 
+import net.guto.hellow.core.listener.ChatListener;
+import net.guto.hellow.core.pojos.Message;
+
 public abstract class Switchboard extends Msnp {
 
 	public static int WIN_MOBILE = 0x01;
@@ -40,4 +43,19 @@ public abstract class Switchboard extends Msnp {
 	Integer getPort() {
 		return port;
 	}
+
+	private ChatListener chatListener;
+
+	public void addChatListener(ChatListener chatListener) {
+		this.chatListener = chatListener;
+	}
+
+	public void onMessage(String message) {
+		if (chatListener != null) {
+			Message msg = new Message(message);
+			chatListener.onMessage(msg);
+		}
+	}
+
+	public abstract void say(String message);
 }
