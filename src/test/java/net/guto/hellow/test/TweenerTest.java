@@ -77,8 +77,8 @@ public class TweenerTest extends TestCase {
 	}
 
 	public void testBuildParamVars() {
-		String username = "hellowgmn%40hotmail.com";
-		String password = "123456";
+		String username = "dvader%40empire.com";
+		String password = "ih8jedis";
 		String lc = "ct=1278901179,rver=5.5.4182.0,wp=FS_40SEC_0_COMPACT,lc=1033,id=507,ru=http:%2F%2Fmessenger.msn.com,tw=0,kpp=1,kv=4,ver=2.1.6000.1,rn=1lgjBfIL,tpf=b0735e3a873dfb5e75054465196398e0";
 		String expected = "Passport1.4 OrgVerb=GET,OrgURL=http%3A%2F%2Fmessenger%2Emsn%2Ecom,sign-in="
 				+ username + ",pwd=" + password + "," + lc;
@@ -96,14 +96,14 @@ public class TweenerTest extends TestCase {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append("GET /login2.srf HTTP/1.1" + EL);
-		sb.append("Authorization: Passport1.4 OrgVerb=GET,OrgURL=http%3A%2F%2Fmessenger%2Emsn%2Ecom,sign-in=hellowgmn%40hotmail.com,pwd=123456,ct=1278901179,rver=5.5.4182.0,wp=FS_40SEC_0_COMPACT,lc=1033,id=507,ru=http:%2F%2Fmessenger.msn.com,tw=0,kpp=1,kv=4,ver=2.1.6000.1,rn=1lgjBfIL,tpf=b0735e3a873dfb5e75054465196398e0"
+		sb.append("Authorization: Passport1.4 OrgVerb=GET,OrgURL=http%3A%2F%2Fmessenger%2Emsn%2Ecom,sign-in=dvader%40empire.com,pwd=ih8jedis,ct=1278901179,rver=5.5.4182.0,wp=FS_40SEC_0_COMPACT,lc=1033,id=507,ru=http:%2F%2Fmessenger.msn.com,tw=0,kpp=1,kv=4,ver=2.1.6000.1,rn=1lgjBfIL,tpf=b0735e3a873dfb5e75054465196398e0"
 				+ EL);
 		sb.append("Host: login.live.com" + EL);
 
 		Map<String, String> requestParams = new HashMap<String, String>();
 		requestParams
 				.put("Authorization",
-						"Passport1.4 OrgVerb=GET,OrgURL=http%3A%2F%2Fmessenger%2Emsn%2Ecom,sign-in=hellowgmn%40hotmail.com,pwd=123456,ct=1278901179,rver=5.5.4182.0,wp=FS_40SEC_0_COMPACT,lc=1033,id=507,ru=http:%2F%2Fmessenger.msn.com,tw=0,kpp=1,kv=4,ver=2.1.6000.1,rn=1lgjBfIL,tpf=b0735e3a873dfb5e75054465196398e0");
+						"Passport1.4 OrgVerb=GET,OrgURL=http%3A%2F%2Fmessenger%2Emsn%2Ecom,sign-in=dvader%40empire.com,pwd=ih8jedis,ct=1278901179,rver=5.5.4182.0,wp=FS_40SEC_0_COMPACT,lc=1033,id=507,ru=http:%2F%2Fmessenger.msn.com,tw=0,kpp=1,kv=4,ver=2.1.6000.1,rn=1lgjBfIL,tpf=b0735e3a873dfb5e75054465196398e0");
 		requestParams.put("Host", "login.live.com");
 		String requestHeader = twn.buildHttpRequestHeader(
 				"login.live.com/login2.srf", requestParams);
