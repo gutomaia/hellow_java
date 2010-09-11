@@ -14,7 +14,7 @@ import net.guto.hellow.core.SocketConnection;
 import net.guto.hellow.core.listener.CommandListener;
 
 public abstract class Msnp {
-	
+
 	protected final String EL = "\r\n";
 	protected String _passport = null;
 	protected int _trid = 1;
@@ -27,7 +27,6 @@ public abstract class Msnp {
 
 	private ConnectionHandle _connectionHandle;
 
-
 	public Msnp() {
 		_connectionHandle = new SocketConnection();
 	}
@@ -39,8 +38,8 @@ public abstract class Msnp {
 	protected void disconnect() {
 		_connectionHandle.disconnect();
 	}
-	
-	public void setConnectionHandle(ConnectionHandle connectionHandle){
+
+	public void setConnectionHandle(ConnectionHandle connectionHandle) {
 		_connectionHandle = connectionHandle;
 	}
 
@@ -60,9 +59,10 @@ public abstract class Msnp {
 	protected final void listen() {
 		while (_connectionHandle.hasMoreCommands()) {
 			String command = _connectionHandle.nextCommand();
-			if (!command.trim().equals("")){
+			if (command != null && !command.trim().equals("")) {
 				execute(command);
-				_commandListener.receivedCommand(command);
+				if (_commandListener != null && command != null)
+					_commandListener.receivedCommand(command);
 			}
 		}
 	}
