@@ -9,31 +9,54 @@
 
 package net.guto.hellow.protocol;
 
-import java.util.StringTokenizer;
+import net.guto.hellow.core.pojos.Message;
 
-public class Msnc1 extends Switchboard {
+public class Mssp8 extends Switchboard {
 
-	// USR 1 hellow@hotmail.com 700432717.4772207.1043557
-	// USR 1 OK hellow@hotmail.com guto
-	// CAL 2 buddy@msn.com
-	// CAL 2 RINGING 700432717
-	// JOI buddy@msn.com buddy
-	// MSG 3 D 798
+	private String _username;
+	private String _cki;
+	private String _call;
+	private String host;
+	private int port;
+
+	public Mssp8(String username, String call, String host, int port,
+			String cki, String caller, String nick) {
+		_username = username;
+		this.host = host;
+		this.port = port;
+		_cki = cki;
+		_call = call;
+	}
+	
+	public void start(){
+		super.connect(host, port);
+		send(ans());
+		listen();
+	}
 
 	@Override
-	void execute(String cmd) {
-		StringTokenizer token;
-		String str1, str2;
-		if (cmd.equals("USR")) {
+	public void execute(String command) {
+		String params[] = command.trim().split(" ");
+		String cmd = params[0];
+		if (cmd.equals("IRO")) {
+			// IRO 1 1 2 luke@rebels.org Luke\r\n
+			// IRO 1 2 2 emperor@empire.com Emperor\r\n
+		} else if (cmd.equals("ANS")) {
+			// ANS 1 OK\r\n
+		} else if (cmd.equals("USR")) {
 		} else if (cmd.equals("CAL")) {
 		} else if (cmd.equals("JOI")) {
 		} else if (cmd.equals("MSG")) {
+			onMessage(command);
 		} else if (cmd.equals("ACK")) {
+		} else if (cmd.equals("NAK")) {
 		} else if (cmd.equals("BYE")) {
-
 		} else if (cmd.equals("OUT")) {
-
 		}
+	}
+
+	public String ans() {
+		return "ANS " + _trid + " " + _username + " " + _cki + " " + _call + EL;
 	}
 
 	public String usr() {
@@ -45,5 +68,9 @@ public class Msnc1 extends Switchboard {
 	public String cal(String contact) {
 		return "CAL " + _trid + " " + contact + EL;
 	}
-
+	
+	public void say(String message){
+		Message msg = new Message(message, 5);
+		send(msg.send());
+	}
 }
