@@ -5,19 +5,12 @@ import net.guto.hellow.core.pojos.Message;
 
 public class MessageTest extends TestCase {
 
-	private Message message;
-
-	@Override
-	protected void tearDown() throws Exception {
-		message = null;
-	}
-	
 	public void testMsgReveiceTypingUser() {
 		String command = "MSG dvader@empire.com Vader 90\r\n"
 				+ "MIME-Version: 1.0\r\n"
 				+ "Content-Type: text/x-msmsgscontrol\r\n"
 				+ "TypingUser: dvader@empire.com\r\n" + "\r\n" + "\r\n";
-		message = new Message(command);
+		Message message = new Message(command);
 		assertNotNull(message.getHeader());
 		assertEquals("1.0", message.getHeader().get("MIME-Version"));
 		assertEquals("text/x-msmsgscontrol",
@@ -32,7 +25,7 @@ public class MessageTest extends TestCase {
 				+ "Content-Type: text/plain; charset=UTF-8\r\n"
 				+ "X-MMS-IM-Format: FN=Lucida%20Sans%20Unicode; EF=B; CO=ff0000; CS=0; PF=22\r\n"
 				+ "\r\n" + "Hello.";
-		message = new Message(command);
+		Message message = new Message(command);
 		assertNotNull(message.getHeader());
 		assertEquals("1.0", message.getHeader().get("MIME-Version"));
 		assertEquals("text/plain; charset=UTF-8",
@@ -47,7 +40,7 @@ public class MessageTest extends TestCase {
 		String command = "MSG 2 U 90\r\n" + "MIME-Version: 1.0\r\n"
 				+ "Content-Type: text/x-msmsgscontrol\r\n"
 				+ "TypingUser: dvader@empire.com\r\n" + "\r\n" + "\r\n";
-		message = new Message(2, "dvader@empire.com");
+		Message message = new Message(2, "dvader@empire.com");
 		assertEquals(command, message.send());
 	}
 
@@ -57,7 +50,7 @@ public class MessageTest extends TestCase {
 				+ "Content-Type: text/plain; charset=UTF-8\r\n"
 				+ "X-MMS-IM-Format: FN=MS%20Sans%20Serif; EF=; CO=0; CS=0; PF=0\r\n"
 				+ "\r\n" + "Are you there?";
-		message = new Message("Are you there?", 5);
+		Message message = new Message("Are you there?", 5);
 		assertEquals(command, message.send());
 	}
 	
@@ -68,7 +61,7 @@ public class MessageTest extends TestCase {
 	    "X-MMS-IM-Format: FN=MS%20Sans%20Serif; EF=; CO=0; CS=0; PF=0\r\n"+
 	    "\r\n"+
 	    "I like turtles.";
-		message = new Message("I like turtles.", 8);
+		Message message = new Message("I like turtles.", 8);
 		//assertEquals(command, message.send());
 	}
 }
