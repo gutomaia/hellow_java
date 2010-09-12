@@ -86,15 +86,6 @@ public class Message {
 		return cmd;
 	}
 	
-//	MSG gutomneto@hotmail.com Gustavo 417\r\n
-//	MIME-Version: 1.0\r\n
-//	Content-Type: text/plain; charset=UTF-8\r\n
-//	User-Agent: pidgin/2.6.2\r\n
-//	X-MMS-IM-Format: FN=Segoe%20UI; EF=; CO=0; PF=0; RL=0\r\n
-//	\r\n
-//	?OTR:AAIKAAAAwPHPducrQ2bhHBZKq+w7j9bGr5YxZhAYnUoA5KViY9WlMsb/AbHA/kDh8DwrCLnV+KEbR3SWUcBms35cAqZAR4KvKC/x4NXuRbroUJ9b9NhF1j1GVqBQ8hKSurFDvMLD9d8wvMwbXEpvHN8NcuLnO5FFjUHbLpIyEqjzY+IISoJ4Vu2NH+Z0a+2bjcLssmzFmVkMdy7OpW/J32XuvkWvBus/afKiIn9HCHYUhpOw/kWOrfXcOlEQ2rpw8TE63hbvxQ==.
-
-
 	public Map<String, String> getHeader() {
 		return header;
 	}
