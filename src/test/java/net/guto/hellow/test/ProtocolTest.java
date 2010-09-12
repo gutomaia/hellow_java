@@ -18,17 +18,20 @@ public class ProtocolTest extends TestCase {
 
 	private MockConnectionHandle mockConnection;
 	private MockAuthentication mockAuthentication;
+	private MockCall mockCall;
 	private MockClient mockClient;
 
 	protected void setUp() throws Exception {
 		mockConnection = new MockConnectionHandle();
 		mockAuthentication = new MockAuthentication();
+		mockCall = new MockCall();
 		mockClient = new MockClient();
 		msn = new Msnp8();
 		msn.setConnectionHandle(mockConnection);
 		msn.setAuthenticationHandle(mockAuthentication);
 		msn.addConnectionListener(mockClient);
 		msn.addContactListener(mockClient);
+		msn.addCallListener(mockCall);
 		msn.login("dvader@empire.com", "ih8jedis");
 	}
 
@@ -133,14 +136,34 @@ public class ProtocolTest extends TestCase {
 
 		send("CHG 9 NLN 0\r\n");
 		receive("CHG 9 NLN 0\r\n");
+		
+		//Initial Presence
+		receive("ILN 9 NLN emperor@empire.com Emperor 24\r\n");
+		receive("ILN 9 IDL luke@rebels.org Luke 268435492\r\n");
 
-		//Challenger
-		receive("CHL 0 29409134351025259292\r\n"); // TODO: see this
+		// Challenger
+		receive("CHL 0 29409134351025259292\r\n");
 		send("QRY 10 msmsgs@msnmsgr.com 32\r\nd0c1178c689350104350d99f8c36ed9c");
 
+		// Presence
+		receive("NLN NLN luke@rebels.org Luke%20JediMaster 268435492\r\n");//Available
+		receive("NLN BSY luke@rebels.org Luke%20JediMaster 268435492\r\n");//Busy
+		receive("NLN IDL luke@rebels.org Luke%20JediMaster 268435492\r\n");//Idle
+		receive("NLN BRB luke@rebels.org Luke%20JediMaster 268435492\r\n");//Be Right Back
+		receive("NLN AWY luke@rebels.org Luke%20JediMaster 268435492\r\n");//Away
+		receive("NLN PHN luke@rebels.org Luke%20JediMaster 268435492\r\n");//On the Phone
+		receive("NLN LUN luke@rebels.org Luke%20JediMaster 268435492\r\n");//Out to lunch
+		receive("FLN luke@rebels.org\r\n");
+		
 		receive("FLN emperor@empire.com\r\n");
-		receive("FLN emperor@empire.com\r\n");
-
-		receive("NLN BSY luke@rebels.org Luke JediMaster 268435492\r\n");
+				
+		// Call
+		receive("RNG 876505971 65.54.228.15:1863 CKI 4216622.2513084 emperor@empire.com Emperor");
+		assertEquals("876505971", mockCall.call);
+		assertEquals("65.54.228.15", mockCall.server);
+		assertEquals(1863, mockCall.port);
+		assertEquals("4216622.2513084", mockCall.cki);
+		assertEquals("emperor@empire.com", mockCall.username);
+		assertEquals("Emperor", mockCall.nick);
 	}
 }
