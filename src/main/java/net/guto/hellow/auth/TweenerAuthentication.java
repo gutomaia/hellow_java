@@ -85,7 +85,7 @@ public class TweenerAuthentication implements Authentication {
 		return sb.toString();
 	}
 
-	public void firstStepRefactored() throws UnknownHostException, IOException {
+	public void connectToTheNexus() throws UnknownHostException, IOException {
 		// TODO: extract the connection to a method;
 		Socket socket = new Socket("nexus.passport.com", 443);
 		socket = ((SSLSocketFactory) SSLSocketFactory.getDefault())
@@ -104,7 +104,6 @@ public class TweenerAuthentication implements Authentication {
 		String passportURLs = extractHttpResponseHeader(httpResponse).get(
 				"PassportURLs");
 		passportProps = extractVarParams(passportURLs);
-
 	}
 
 	public String buildHttpRequestHeader(String url, Map<String, String> params) {
@@ -137,7 +136,7 @@ public class TweenerAuthentication implements Authentication {
 		return sb.toString();
 	}
 
-	public String secondStep(String username, String password, String lc)
+	public String performTheLogin(String username, String password, String lc)
 			throws IOException {
 		String DALogin = passportProps.get("DALogin");
 		String host = DALogin.substring(0, DALogin.indexOf("/"));
@@ -175,18 +174,14 @@ public class TweenerAuthentication implements Authentication {
 		Map<String, String> httpHeader = extractHttpResponseHeader(httpResponse);
 		String authenticationInfo = httpHeader.get("Authentication-Info");
 		Map<String, String> authResponse = extractVarParams(authenticationInfo);
-		// TODO: return could be diferent;
-		// see
-		// http://www.hypothetic.org/docs/msn/notification/authentication.php
-
 		String fromPP = authResponse.get("from-PP");
 		return fromPP;
 	}
 
 	public String authenticate(String username, String password, String lc) {
 		try {
-			firstStepRefactored();
-			String token = secondStep(username, password, lc);
+			connectToTheNexus();
+			String token = performTheLogin(username, password, lc);
 			return token.substring(1, token.length() - 1);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
