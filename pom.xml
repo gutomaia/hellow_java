@@ -116,6 +116,7 @@
 				<version>2.3.2-SNAPSHOT</version>
 				<configuration>
 					<xmlOutput>true</xmlOutput>
+					<xmlOutputDirectory>target/site</xmlOutputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
