@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2011-05-05T11:28:20.284">
+<file name="/home/guto/projetos/github/hellow_java/src/main/java/net/guto/hellow/auth/TweenerAuthentication.java">
+<violation beginline="41" endline="43" begincolumn="65" endcolumn="25" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.auth" class="TweenerAuthentication" method="extractHttpResponseHeader" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
+<file name="/home/guto/projetos/github/hellow_java/src/main/java/net/guto/hellow/core/pojos/Message.java">
+<violation beginline="24" endline="26" begincolumn="64" endcolumn="25" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.core.pojos" class="Message" method="extractMsgHeader" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
+<file name="/home/guto/projetos/github/hellow_java/src/main/java/net/guto/hellow/protocol/Msnp8.java">
+<violation beginline="119" endline="120" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="120" endline="121" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="121" endline="122" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="125" endline="128" begincolumn="49" endcolumn="25" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="133" endline="134" begincolumn="50" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="134" endline="135" begincolumn="50" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="135" endline="136" begincolumn="50" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="136" endline="138" begincolumn="50" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Msnp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
+<file name="/home/guto/projetos/github/hellow_java/src/main/java/net/guto/hellow/protocol/Mssp8.java">
+<violation beginline="22" endline="29" begincolumn="16" endcolumn="9" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="net.guto.hellow.protocol" class="Mssp8" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused constructor parameters such as 'caller'.
+</violation>
+<violation beginline="22" endline="29" begincolumn="16" endcolumn="9" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="net.guto.hellow.protocol" class="Mssp8" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused constructor parameters such as 'nick'.
+</violation>
+<violation beginline="41" endline="44" begincolumn="40" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="44" endline="46" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="46" endline="47" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="47" endline="48" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="48" endline="49" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="51" endline="52" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="52" endline="53" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="53" endline="54" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="54" endline="55" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Mssp8" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
+<file name="/home/guto/projetos/github/hellow_java/src/main/java/net/guto/hellow/protocol/Notification.java">
+<violation beginline="161" endline="163" begincolumn="46" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Notification" method="onRemoveContact" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="167" endline="169" begincolumn="49" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Notification" method="onRemoveGroup" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="186" endline="188" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Notification" method="onContactOnline" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="192" endline="194" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Notification" method="onContactOffline" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="198" endline="200" begincolumn="47" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.protocol" class="Notification" method="onContactAvaiable" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
+</pmd>
