@@ -63,9 +63,9 @@
 			</url>
 		</snapshotRepository>
 		<site>
-			<id>guto.net</id>
-			<name>gUTO.nET Personal Site</name>
-			<url>scpexe://guto.net/home/gutonet/guto.net/projects/hellow_java</url>
+			<id>github-project-site</id>
+			<name>GutoMaia's GitHub Project Site</name>
+			<url>gitsite:git@github.com/gutomaia/hellow_java</url>
 		</site>
 	</distributionManagement>
 	
