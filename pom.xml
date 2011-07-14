@@ -126,7 +126,6 @@
 				<configuration>
 					<xmlOutput>true</xmlOutput>
 					<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
-					<xmlOutputDirectory>target/site</xmlOutputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
