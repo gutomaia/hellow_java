@@ -70,8 +70,8 @@
 	</distributionManagement>
 	
 	<scm>
-		<connection>scm:git:git://github.com//gutomaia/hellow_java.git</connection>
-		<developerConnection>scm:git:git@github.com:gutomaia/hellow_java.git</developerConnection>
+		<connection>scm:git:ssh://github.com//gutomaia/hellow_java.git</connection>
+		<developerConnection>scm:git:ssh@github.com:gutomaia/hellow_java.git</developerConnection>
 		<url>http://github.com/gutomaia/hellow_java</url>
 	</scm>
 
