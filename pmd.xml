@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2011-05-05T11:28:20.284">
+<pmd version="4.2.5" timestamp="2011-08-25T00:03:08.652">
 <file name="/home/guto/projetos/github/hellow_java/src/main/java/net/guto/hellow/auth/TweenerAuthentication.java">
 <violation beginline="41" endline="43" begincolumn="65" endcolumn="25" rule="EmptyIfStmt" ruleset="Basic Rules" package="net.guto.hellow.auth" class="TweenerAuthentication" method="extractHttpResponseHeader" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
 Avoid empty if statements
