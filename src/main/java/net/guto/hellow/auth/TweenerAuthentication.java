@@ -94,7 +94,7 @@ public class TweenerAuthentication implements Authentication {
 				new InputStreamReader(socket.getInputStream()));
 		PrintWriter printwriter = new PrintWriter(socket.getOutputStream(),
 				true);
-		printwriter.println("GET /rdr/pprdr.asp");
+		printwriter.println("GET /rdr/pprdr.asp HTTP/1.0\r\n\r\n");
 		String httpResponse = null;
 		try {
 			httpResponse = fetchStream(bufferedreader);
